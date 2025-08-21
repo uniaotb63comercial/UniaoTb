@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Train+One&display=swap');
+
 /* ==== ANIMAÇÃO DO TUBO ==== */
 #tube-stage {
   position: fixed;
@@ -78,29 +80,18 @@ body {
 
 .product-intro h1 {
   position: relative;
-  font-size: clamp(40px, 10vw, 100px); /* responsivo */
-  color: white; /* cor interna do texto */
-  font-weight: bold;
-  letter-spacing: 2px;
+  font-family: "Train One", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  color: #be132d;
+  background-color: white;
+  border-radius: 15px;
+  font-size: 100px;
+  margin: 0;        /* remove a margem padrão */
+  line-height: 1;   /* ajusta altura da linha para não gerar espaço extra */
+  display: inline-block; /* faz o fundo envolver só o texto */
 }
 
-.product-intro h1::before {
-  content: attr(data-text);
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  color: transparent; /* garante que só apareça o contorno */
-  text-shadow:
-     2px 2px 0 red,
-    -2px 2px 0 red,
-     2px -2px 0 red,
-    -2px -2px 0 red,
-     2px 0px 0 red,
-    -2px 0px 0 red,
-     0px 2px 0 red,
-     0px -2px 0 red;
-}
 /*.product-intro .intro-logo {
   max-width: 200px;
   height: auto;
