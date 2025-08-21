@@ -68,7 +68,7 @@ body {
   text-align: center;
 }
 
-.product-intro .intro-content {
+.product-intro .intro-content  {
   display: flex;
   flex-direction: column; /* logo em cima, texto embaixo */
   align-items: center;
@@ -77,9 +77,29 @@ body {
 }
 
 .product-intro h1 {
-  font-size: 2.5rem;
-  color: #fff;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5)
+  position: relative;
+  font-size: clamp(40px, 10vw, 100px); /* responsivo */
+  color: white; /* cor interna do texto */
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.product-intro h1::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  color: transparent; /* garante que só apareça o contorno */
+  text-shadow:
+     2px 2px 0 red,
+    -2px 2px 0 red,
+     2px -2px 0 red,
+    -2px -2px 0 red,
+     2px 0px 0 red,
+    -2px 0px 0 red,
+     0px 2px 0 red,
+     0px -2px 0 red;
 }
 /*.product-intro .intro-logo {
   max-width: 200px;
