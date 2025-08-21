@@ -1,16 +1,83 @@
-<!DOCTYPE html>
-<html>
-
+<!doctype html>
+<html lang="pt-BR">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <title>replit</title>
-  <link href="style.css" rel="stylesheet" type="text/css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Revestimento V-Fix</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
-  Hello world
-  <script src="script.js"></script>
-</body>
 
+  <!-- TELA DE ANIMAÇÃO DO TUBO -->
+  <div id="tube-stage">
+    <img src="img/tubointrotransp.png" class="tube" id="tube" alt="Tubo">
+    <div id="tube-content">
+      <h1>V-FIX</h1>
+      <p>Cuidando do presente, preservando o futuro.</p>
+    </div>
+  </div>
+
+  <!-- SITE REAL -->
+  <div id="site" style="display:none;">
+    <nav class="sticky navbar" id="navbar">
+      <div class="brand display__logo">
+        <img class="logo" src="img/Logo_UTB_Horizontal_Cor.png" alt="Logo"/>
+      </div>
+      <input type="checkbox" id="nav" class="hidden" />
+      <label for="nav" class="nav__open"><i></i><i></i><i></i></label>
+      <div class="nav">
+        <ul class="nav__items">
+          <li class="nav__item"><a href="#home" class="nav__link">UniãoTB</a></li>
+          <li class="nav__item"><a href="#about" class="nav__link">V-Fix</a></li>
+          <li class="nav__item"><a href="#portfolio" class="nav__link">CONTATO</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <main>
+      <!-- Seção Intro -->
+      <section class="product-intro">
+        <div class="intro-content">
+          <h1>V-FIX</h1>
+        </div>
+      </section>
+
+      <!-- Seção Produto -->
+      <section class="cards-section">
+        <p class="intro-text">
+          O revestimento V_FIX une as vantagens do PEAD à força e tradição do concreto. Maximiza a durabilidade, otimiza recursos e protege estruturas e meio-ambiente, garantindo desempenho seguro e confiável por muitos anos.
+        </p>
+        <!-- Layout lateral (desktop) + acordeão (mobile) -->
+        <div class="cards-lateral">
+          <ul class="accordion">
+            <li class="accordion-item active" data-img="img/atqqui.png" data-text="<p>Testado por 70 dias a 8 reagentes agressivos (ácido sulfúrico, hipoclorito, detergentes, etc.), em temperatura ambiente e 60 °C. O V-Fix manteve sua forma com variações inferiores a ±3% e com perda de massa inferior a 0,06%.</p>">
+              <button class="accordion-header">Resistência Química</button>
+              <div class="accordion-content"></div>
+            </li>
+            <li class="accordion-item" data-img="img/31.jpg" data-text="<p>Com uma força de ancoragem média de 1,355 kN por pino, o que equivale a 582,7 kN/m², esse desempenho reforça a segurança da fixação do revestimento ao concreto, mesmo sob pressão hidráulica ou movimentação estrutural.
+</p>">
+              <button class="accordion-header">Fixação Mecânica</button>
+              <div class="accordion-content"></div>
+            </li>
+            <li class="accordion-item" data-img="img/27.jpg" data-text="<p>Sua superfície lisa apresenta baixo coeficiente de rugosidade (n ≈ 0,009–0,011) em relação ao concreto (n ≈ 0,013–0,017) melhorando significativamente o escoamento de fluidos, e aumentaa a eficiência hidráulica. Essa característica o torna ideal tanto para novos projetos quanto para a reabilitação de estruturas existentes com desempenho comprometido.
+</p>">
+              <button class="accordion-header">Eficiência Hidráulica</button>
+              <div class="accordion-content"></div>
+            </li>
+          </ul>
+
+          <!-- Preview (apenas desktop) -->
+          <div class="card-preview">
+            <img id="card-img" src="" alt="Preview do Produto">
+            <div id="card-text"></div>
+          </div>
+        </div>
+      </section>
+
+      <hr class="section-divider">
+    </main>
+  </div>
+
+  <script type="module" src="script.js"></script>
+</body>
 </html>

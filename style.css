@@ -1,4 +1,261 @@
-html {
-  height: 100%;
-  width: 100%;
+/* ==== ANIMAÇÃO DO TUBO ==== */
+#tube-stage {
+  position: fixed;
+  top:0; left:0;
+  width:100vw;
+  height:100vh;
+  background:url(img/vfixlar.png) center center;
+  display: grid;
+  place-items: center;
+  z-index: 9999;
+  overflow: hidden;
 }
+.tube { width:70vmin; height:auto; }
+#tube-content {
+  position: absolute;
+  text-align: center;
+  color: #fff;
+  font-size: 50px;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.5s, transform 0.1s;
+}
+
+body {
+  font-family: 'Source Code Pro', monospace;
+  line-height: 1.6;
+  margin: 0;  
+  background-color: #F9B233;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='69' height='69' viewBox='0 0 200 200'%3E%3Cdefs%3E%3ClinearGradient id='a' gradientUnits='userSpaceOnUse' x1='100' y1='33' x2='100' y2='-3'%3E%3Cstop offset='0' stop-color='%23000' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23000' stop-opacity='1'/%3E%3C/linearGradient%3E%3ClinearGradient id='b' gradientUnits='userSpaceOnUse' x1='100' y1='135' x2='100' y2='97'%3E%3Cstop offset='0' stop-color='%23000' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23000' stop-opacity='1'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cg fill='%23d59304' fill-opacity='0.13'%3E%3Crect x='100' width='100' height='100'/%3E%3Crect y='100' width='100' height='100'/%3E%3C/g%3E%3Cg fill-opacity='0.13'%3E%3Cpolygon fill='url(%23a)' points='100 30 0 0 200 0'/%3E%3Cpolygon fill='url(%23b)' points='100 100 0 130 0 100 200 100 200 130'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* ===== NAVBAR ===== */
+.logo { max-width: 80%; height: auto; }
+.navbar { padding:.5em; background: url(img/vfixlar.png) center center; box-shadow: 0 14px 14px -14px rgba(0,0,0,.75); }
+.sticky { position: sticky; top: 0; z-index: 1; }
+.hidden { display: none; }
+.nav__items { list-style: none; margin: 0; padding: 0; }
+.nav__link { color: #eee; text-decoration: none; }
+.nav__items .nav__link:hover { color: rgb(252,41,74); }
+
+@media (min-width: 800px) {
+  .navbar { display: flex; justify-content: space-between; align-items: center; }
+  .nav { display: flex !important; }
+  .nav__items { display: flex; flex-direction: row; gap: 20px; }
+  .nav__items .nav__link { font-size: 1rem; }
+}
+@media (max-width: 799px) {
+  .nav__items {
+    flex-direction: column; text-align: center;
+    background: rgb(249,178,51);
+    position: fixed; top: 0; left: -100%; width: 100%; height: 100%;
+    justify-content: center; transition: left .3s ease;
+  }
+  #nav:checked ~ .nav .nav__items { left: 0; }
+}
+
+/* ===== Sessão Intro ===== */
+.product-intro {
+  width: 100%;
+  min-height: 650px; /* altura mínima da seção */
+  background: url('img/tubointro.jpeg') center center / cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.product-intro .intro-content {
+  display: flex;
+  flex-direction: column; /* logo em cima, texto embaixo */
+  align-items: center;
+  gap: 20px;
+  max-width: 800px;
+}
+
+.product-intro h1 {
+  font-size: 2.5rem;
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5)
+}
+/*.product-intro .intro-logo {
+  max-width: 200px;
+  height: auto;
+}*/
+
+
+/* ===== CARDS / ACORDEÃO ===== */
+
+.cards-section { 
+  margin:35px; 
+  padding:20px;
+  border: 2px solid orange; 
+  border-radius: 8px; 
+  background-color: #fff;
+}
+
+.cards-section .intro-text {
+  text-align:center; 
+  font-size:1.2rem; 
+  margin:25px; 
+  color:#444;
+  border: 2px solid orange; 
+  border-radius: 8px; 
+  padding: 10px; 
+  background:#fff;
+}
+
+.cards-lateral { 
+  display:flex; 
+  flex-direction: column;
+  gap:50px; 
+  align-items:flex-start;
+  margin-top:20px;
+}
+
+/* Accordion */
+.accordion { 
+  list-style:none; 
+  padding:0; 
+  margin:0; 
+  flex:1; }
+.accordion-item { 
+  border:2px solid orange;
+  border-radius:8px; 
+  margin-bottom:10px; 
+  background:#fff; 
+  overflow:hidden; 
+}
+
+.accordion-header {
+  width:100%; 
+  text-align:center; 
+  font-weight:bold; 
+  color:#ff6600;
+  padding:12px 16px; 
+  cursor:pointer; 
+  border:none; 
+  background:transparent; 
+  font-size:1rem;
+}
+
+.accordion-header:hover { 
+  color:#d35400; 
+}
+.accordion-content {
+  display:none;
+  padding:15px;
+  animation: fadeIn .3s ease;
+  overflow:hidden;
+  word-wrap:break-word;
+
+  /* padronização altura */
+  min-height: 220px;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+}
+.accordion-item.active .accordion-content { 
+  display:block; 
+}
+
+
+/* Preview lateral (desktop) */
+.card-preview {
+  flex:2; 
+  display:flex; 
+  gap:10px; 
+  align-items:center; 
+  justify-content:space-between;
+}
+.card-preview img, #card-text {
+  width:50%; opacity:0; transition:opacity 0.3s ease;
+}
+.card-preview img {
+  border-radius:12px;
+  box-shadow:0px 4px 15px rgba(0,0,0,0.1);
+  max-height:300px; /* trava altura no desktop */
+  object-fit:contain;
+}
+#card-text {
+  font-size:1rem;
+  line-height:1.4;
+  color:#444;
+  background-color: #fff;
+
+  /* padronização altura */
+  min-height: 250px; /* ajusta conforme layout desejado */
+  display:flex;
+  align-items:center;
+}
+/* ===== Ajuste Desktop: acordeon row no topo e preview abaixo ===== */
+@media(min-width: 769px){
+  /* Empilha acordeon em row no topo */
+  .cards-lateral {
+    flex-direction: column; /* mantém coluna: acordeon no topo, preview embaixo */
+    gap: 20px;
+  }
+
+  /* Accordion em linha */
+  .accordion {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    width: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .accordion-item {
+    flex: 1;
+    min-width: 150px; /* ajusta largura mínima do botão */
+  }
+
+  /* Conteúdo do acordeon não abre no desktop (só botão) */
+  .accordion-content {
+    display: none !important;
+  }
+
+  /* Preview abaixo do acordeon */
+  .card-preview {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    justify-content: stretch;
+  }
+
+  /* Trava altura da imagem e mantém ratio */
+  .card-preview img {
+    max-width: 70%;
+    max-height: 300px;
+    border-radius: 10px;
+  }
+
+  #card-text {
+    border:2px solid orange;
+    flex: 1;
+    min-height: 250px;
+    display: flex;
+    padding: 15px;
+    align-items: stretch;
+    font-size: 20px;
+    line-height: 1.4;
+    color: #444;
+    max-width: 30%;
+  }
+}
+
+/* Responsivo */
+@media(max-width:768px){
+  .cards-lateral { flex-direction: column; }
+  .card-preview { display:none; } /* preview some no mobile */
+  .accordion-header { font-size:1rem; padding:10px; }
+  .accordion-content img { width:100%; max-height:200px; }
+}
+
+@keyframes fadeIn { from {opacity:0;} to {opacity:1;} }
