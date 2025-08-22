@@ -328,10 +328,40 @@ body {
 
 /* Responsivo */
 @media(max-width:768px){
-  .cards-lateral { flex-direction: column; }
-  .card-preview { display:none; } /* preview some no mobile */
-  .accordion-header { font-size:1rem; padding:10px; }
-  .accordion-content img { width:100%; max-height:200px; }
+  .intro-empresa { display: none; } /* <<< OCULTA NO MOBILE */
+
+  .accordion {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 15px;
+    padding: 10px;
+  }
+  .accordion-item {
+    flex: 0 0 80%; /* ocupa 80% da tela */
+    scroll-snap-align: center;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    overflow: hidden;
+  }
+  .accordion-content {
+    display: block !important; 
+    padding: 10px;
+    text-align: center;
+  }
+  .accordion-content img {
+    width: 100%;
+    height: auto;
+    max-height: 200px; /* controla a altura no mobile */
+    object-fit: contain;
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+  .accordion-content div {
+    font-size: 14px;
+    line-height: 1.4;
+  }
 }
 
 @keyframes fadeIn { from {opacity:0;} to {opacity:1;} }

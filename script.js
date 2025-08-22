@@ -20,32 +20,20 @@ function updateTube(){
   }
 }
 
-// Interações de scroll/touch
-window.addEventListener('wheel', e=>{
-  progress += e.deltaY*0.0015;
-  progress=Math.min(Math.max(progress,0),1);
-  updateTube();
-});
-let startY=0;
-window.addEventListener('touchstart', e=>{startY=e.touches[0].clientY;});
-window.addEventListener('touchmove', e=>{
-  let deltaY=startY-e.touches[0].clientY;
-  progress+=deltaY*0.003;
-  progress=Math.min(Math.max(progress,0),1);
-  updateTube();
-  startY=e.touches[0].clientY;
-});
-window.addEventListener('scroll',()=>{
-  let scrollTop=window.scrollY;
-  let docHeight=document.body.scrollHeight-window.innerHeight;
-  if(docHeight>0){
-    progress=scrollTop/docHeight;
-    progress=Math.min(Math.max(progress,0),1);
+// Animação automática em 4s
+window.addEventListener("load", () => {
+  let duration = 4000;
+  let start = performance.now();
+  function animate(time) {
+    let elapsed = time - start;
+    progress = Math.min(elapsed / duration, 1);
     updateTube();
+    if (progress < 1) requestAnimationFrame(animate);
   }
+  requestAnimationFrame(animate);
 });
 
-// Accordion
+// Accordion / Carrossel
 document.addEventListener("DOMContentLoaded", () => {
   const items = document.querySelectorAll(".accordion-item");
   const imgPreview = document.getElementById("card-img");
@@ -57,26 +45,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let img = item.dataset.img;
     let text = item.dataset.text;
-
-    // Detecta se é mobile ou desktop
     const isMobile = window.innerWidth < 768;
 
     if(isMobile){
-      // Mobile → acordeon com imagem + texto
       const content = item.querySelector(".accordion-content");
       content.innerHTML = `<img src="${img}" alt=""><div>${text}</div>`;
-
-      // preview some (já controlado via CSS @media)
+      item.classList.add("active");
       if(imgPreview && textPreview){
         imgPreview.src = "";
         textPreview.innerHTML = "";
       }
     } else {
-      // Desktop → acordeon só texto
-      //const content = item.querySelector(".accordion-content");
-      //content.innerHTML = `<div>${item.querySelector(".accordion-header").textContent}</div>`;
-
-      // Preview lateral → imagem + texto
       if(imgPreview && textPreview){
         imgPreview.style.opacity=0;
         textPreview.style.opacity=0;
@@ -90,19 +69,25 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // inicializa primeiro item
-  showItem(items[0]);
+  if(window.innerWidth < 768){
+    items.forEach(item=>{
+      const content = item.querySelector(".accordion-content");
+      content.innerHTML = `<img src="${item.dataset.img}" alt=""><div>${item.dataset.text}</div>`;
+      item.classList.add("active");
+    });
+  } else {
+    showItem(items[0]);
+  }
 
   items.forEach(item => {
     const header = item.querySelector(".accordion-header");
     header.addEventListener("click", () => {
-      showItem(item);
+      if(window.innerWidth >= 768) showItem(item);
     });
   });
 
-  // Atualiza quando redimensiona tela (mobile <-> desktop)
   window.addEventListener("resize", () => {
     const activeItem = document.querySelector(".accordion-item.active");
     if(activeItem) showItem(activeItem);
   });
-});
+})
