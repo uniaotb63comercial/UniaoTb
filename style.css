@@ -67,7 +67,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 40px 20px;
+  padding: 10px 20px;
   box-sizing: border-box;
   text-align: center;
 }
@@ -128,10 +128,10 @@ body {
 
 .intro-empresa h2{
   font-family: "Cal Sans", sans-serif;  font-weight: 400;
-  
   width: 80%;
   font-style: normal;
   color: #be132d;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
   font-size: 25px;
   margin: 10px;        /* remove a margem padrão */
   /*line-height: 1;   /* ajusta altura da linha para não gerar espaço extra */
@@ -181,8 +181,8 @@ body {
 /* ===== CARDS / ACORDEÃO ===== */
 
 .cards-section { 
-  margin:35px; 
-  padding:20px;
+  margin:15px; 
+  padding:2px;
   border: 2px solid orange; 
   border-radius: 8px; 
   background-color: #fff;
