@@ -72,26 +72,15 @@ body {
   text-align: center;
 }
 
-/*.product-intro .intro-content  {
-  display: flex;
-  flex-direction: column; /* logo em cima, texto embaixo 
-  align-items: center;
-  gap: 20px;
-  max-width: 800px;
-}*/
 .intro-empresa {
   max-width: 800px;
   height: 360px;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 
-    0 8px 32px rgba(0, 0, 0, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.5),
-    inset 0 -1px 0 rgba(255, 255, 255, 0.1),
-    inset 0 0 18px 9px rgba(255, 255, 255, 0.9);
+  background: rgba(245, 221, 224, 0.31);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(16.6px);
+  -webkit-backdrop-filter: blur(16.6px);
+  border: 1px solid rgba(245, 221, 224, 0.9);
   position: relative;
   overflow: hidden;
 }
@@ -131,7 +120,7 @@ body {
   width: 80%;
   font-style: normal;
   color: #be132d;
-  text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+  text-shadow: 2px 2px 5px rgb(255, 255, 255,0.9);
   font-size: 25px;
   margin: 10px;        /* remove a margem padrão */
   /*line-height: 1;   /* ajusta altura da linha para não gerar espaço extra */
@@ -170,12 +159,6 @@ body {
   width: auto;
   border-radius: 5px;/* mantém proporção */
 }
-
-
-/*.product-intro .intro-logo {
-  max-width: 200px;
-  height: auto;
-}*/
 
 
 /* ===== CARDS / ACORDEÃO ===== */
@@ -262,15 +245,19 @@ body {
   align-items:center; 
   justify-content:space-between;
 }
+
 .card-preview img, #card-text {
   width:50%; opacity:0; transition:opacity 0.3s ease;
 }
+
 .card-preview img {
   border-radius:12px;
   box-shadow:0px 4px 15px rgba(0,0,0,0.1);
   max-height:300px; /* trava altura no desktop */
+  margin-bottom: 5px;
   object-fit:contain;
 }
+
 #card-text {
   font-size:1rem;
   line-height:1.4;
@@ -389,4 +376,79 @@ body {
   }
 }
 
+/* Botão CTA fixo */
+.cta-fixed {
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #ff6600;
+  text-align: center;
+  padding: 0.8rem;
+  z-index: 1000;
+}
+.cta-fixed a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1rem;
+  display: inline-block;
+  width: 100%;
+}
+.cta-fixed a:hover {
+  background: #e65c00;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+
+/* Seção Sobre a Empresa */
+.about-section {
+  display: flex;
+  flex-direction: column;
+  border:2px solid orange;
+  border-radius:8px; 
+  margin-bottom:10px; 
+  padding: 4rem 2rem;
+  background-color: #f8f9fa; /* cinza bem claro */
+  align-items: center;
+}
+
+
+.about-section h2 {
+  font-size: 2rem;
+  color: #0a2a43; /* azul escuro para dar sobriedade */
+  margin-bottom: 1rem;
+}
+
+.about-section p {
+  font-size: 1.1rem;
+  color: #333;
+  max-width: 800px;
+  margin: 0 auto 2rem auto;
+  line-height: 1.6;
+}
+
+.about-container,
+.mission-container {
+  margin-bottom: 3rem;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .about-section {
+    border:2px solid orange;
+  border-radius:8px; 
+  margin-bottom:10px; 
+    text-align: left;
+  }
+
+  .about-container,
+  .mission-container {
+    max-width: 1000px;
+    margin: 0 auto 3rem auto;
+  }
+
+  .about-section p {
+    font-size: 1.2rem;
+  }
+}
 @keyframes fadeIn { from {opacity:0;} to {opacity:1;} }
