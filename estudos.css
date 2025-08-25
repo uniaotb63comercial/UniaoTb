@@ -95,6 +95,24 @@ ul {
   border-radius: 6px;
   transition: 0.3s;
 }
+
+.img-block {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+.img-block img {
+  width: 100%;
+  border-radius: 8px;
+  object-fit: cover;
+}
+ .img-block {
+    flex-direction: row;
+  }
+  .img-block img {
+    width: 32%;
+  }
 /* Responsividade */
 @media (max-width: 768px) {
   header h1 {
@@ -109,5 +127,12 @@ ul {
   }
   .cta-fixed a {
     font-size: 1.1rem;
+  }
+}
+ .img-block {
+    flex-direction: row;
+  }
+  .img-block img {
+    width: 32%;
   }
 }
