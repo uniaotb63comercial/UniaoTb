@@ -25,7 +25,7 @@
 }
 
 body {
-  font-family: 'Source Code Pro', monospace;
+  font-family: Arial, sans-serif;
   line-height: 1.6;
   margin: 0;  
   background-color: #AFCCEE;
@@ -116,7 +116,7 @@ body {
 }
 
 .intro-empresa h2{
-  font-family: "Cal Sans", sans-serif;  font-weight: 400;
+  font-family: Arial, sans-serif;
   width: 80%;
   font-style: normal;
   color: #be132d;
@@ -129,7 +129,7 @@ body {
 
 .product-intro h1 {
   position: relative;
-  font-family: "Cal Sans", sans-serif;  font-weight: 400;
+  font-family: Arial, sans-serif;
   font-style: normal;
   color: #be132d;
   border: 05px solid #be132d;
