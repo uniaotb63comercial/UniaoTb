@@ -1,0 +1,89 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  background: #f5f5f5;
+  color: #333;
+}
+header {
+  background: #222;
+  color: #fff;
+  text-align: center;
+  padding: 2rem 1rem;
+}
+header h1 {
+  margin: 0;
+  font-size: 1.6rem;
+}
+section {
+  max-width: 900px;
+  margin: 1rem auto;
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+h2 {
+  color: #ff6600;
+  margin-top: 1rem;
+  font-size: 1.2rem;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  font-size: 0.85rem;
+}
+table th, table td {
+  border: 1px solid #ddd;
+  padding: 6px;
+  text-align: center;
+}
+table th {
+  background: #f0f0f0;
+}
+ul {
+  list-style: disc;
+  padding-left: 20px;
+}
+/* Botão CTA fixo */
+.cta-fixed {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #ff6600;
+  text-align: center;
+  padding: 0.8rem;
+  z-index: 1000;
+}
+.cta-fixed a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1rem;
+  display: inline-block;
+  width: 100%;
+}
+.cta-fixed a:hover {
+  background: #e65c00;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+/* Responsividade */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 1.3rem;
+  }
+  section {
+    margin: 0.8rem;
+    padding: 1rem;
+  }
+  table {
+    font-size: 0.75rem;
+  }
+  .cta-fixed a {
+    font-size: 1.1rem;
+  }
+}
