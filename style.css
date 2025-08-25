@@ -35,7 +35,7 @@ body {
 }
 
 /* ===== NAVBAR ===== */
-.logo { max-width: 80%; height: auto; }
+.logo { max-width: 50%; height: auto; }
 .navbar { padding:.5em; background: url(img/vfixlar.png) center center; box-shadow: 0 14px 14px -14px rgba(0,0,0,.75); }
 .sticky { position: sticky; top: 0; z-index: 1; }
 .hidden { display: none; }
