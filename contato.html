@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Revestimento V-Fix</title>
+  <link rel="icon" href="img/favaUTB.ico" type="image/x-icon">
+  <link rel="stylesheet" href="contato.css" />
+</head>
+
+  <body>
+    <header>
+      <h1>Formulário de Contato</h1>
+    </header>
+
+    <form id="leadForm">
+      <input type="text" name="nome" placeholder="Nome" required>
+      <input type="text" name="empresa" placeholder="Empresa" required>
+      <input type="text" name="setor" placeholder="Setor" required>
+      <input type="tel" name="telefone" placeholder="Telefone" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <button type="submit">Enviar</button>
+    </form>
+
+    <script>
+    document.getElementById('leadForm').addEventListener('submit', function(e){
+      e.preventDefault(); // impede o reload da página
+      const formData = new FormData(this);
+      const params = new URLSearchParams(formData).toString();
+
+      fetch("https://script.google.com/macros/s/AKfycbxxfgU8MuX3EhoXNYeObe-ZxOU0IPrIh6tQeqg9NoYsBwd6OS4C83R5ZtDfAo5WRhSF/exec", {
+        method: "POST",
+        body: params,
+        headers: {"Content-Type": "application/x-www-form-urlencoded"}
+      })
+      .then(response => response.text())
+      .then(data => alert("Contato enviado com sucesso!"))
+      .catch(err => alert("Erro ao enviar, tente novamente."));
+    });
+    </script>
+  </body>
+</html>
