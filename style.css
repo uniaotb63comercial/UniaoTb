@@ -159,6 +159,34 @@ body {
   width: auto;
   border-radius: 5px;/* mantém proporção */
 }
+.logos-lab {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;        /* permite scroll horizontal no mobile */
+  scroll-snap-type: x mandatory; /* "trava" cada imagem ao fazer scroll */
+  padding-bottom: 10px;
+}
+
+/* Cada imagem */
+.logos-lab img {
+  flex: 0 0 auto;          /* impede encolher */
+  height: 200px;           /* define altura fixa */
+  width: auto;             /* largura proporcional */
+  border-radius: 5px;
+  scroll-snap-align: start; /* alinhamento no scroll snap */
+}
+
+/* Desktop */
+@media(min-width: 768px) {
+  .logos-lab {
+    justify-content: center;
+    overflow-x: visible;   /* remove scroll horizontal */
+  }
+  .logos-lab img {
+    height: auto;
+    max-height: 250px;
+  }
+}
 
 
 /* ===== CARDS / ACORDEÃO ===== */
