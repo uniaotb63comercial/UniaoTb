@@ -161,10 +161,21 @@ body {
 }
 
 .logos-lab img {
-  max-height: 60px;          /* ajusta altura */
+  max-height: 100px;          /* ajusta altura */
   width: auto;
   border-radius: 5px;/* mantém proporção */
 }
+
+.logos-dtss {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;   /* centraliza horizontal */
+  align-items: center;
+  gap: 20px;                 /* espaço entre as imagens */
+  margin-top: 15px;
+}
+
+
 
 .logos-dtss img {
   max-width: 100%;   /* não ultrapassa a tela */
