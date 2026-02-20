@@ -50,17 +50,31 @@ body {
   .nav__items .nav__link { font-size: 1rem; }
 }
 @media (max-width: 799px) {
+
   .nav__items {
-    flex-direction: row; text-align: center;
+    flex-direction: column;
+    text-align: center;
     background: rgb(249,178,51);
-    position: fixed; top: 0; left: 0; width: 100%; height: auto;
-    justify-content: center; transition: none;
-    padding: 10px 0;
+
+    position: fixed;
+    top: 0;
+    left: -100%;   /* 🔥 começa escondido */
+    width: 100%;
+    height: 100vh;
+
+    justify-content: center;
+    align-items: center;
+
+    transition: left 0.3s ease; /* animação suave */
+    padding: 20px 0;
     z-index: 1000;
   }
-  #nav:checked ~ .nav .nav__items { left: 0; }
-}
 
+  /* Quando checkbox estiver marcado, mostra menu */
+  #nav:checked ~ .nav .nav__items {
+    left: 0;
+  }
+}
 /* ===== Sessão Intro ===== */
 .product-intro {
   width: 100%;
