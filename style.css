@@ -51,7 +51,7 @@ body {
 }
 @media (max-width: 799px) {
   .nav__items {
-    flex-direction: column; text-align: center;
+    flex-direction: row; text-align: center;
     background: rgb(249,178,51);
     position: fixed; top: 0; left: 0; width: 100%; height: auto;
     justify-content: center; transition: none;
